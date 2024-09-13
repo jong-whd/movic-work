@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+body {
+    margin: 0;
+    height: 100%;
+    color: #74748E;
+}
+
+.bookmark-top {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.bookmark-page {
+    left: 1500px;
+}
+
+.bookmark-top {
+    margin-top: 50px;
+    display: block;
+    font-size: 0;
+}
+
+.bookmark-top > h2 {
+    font-size: 40px;
+}
+
+hr {
+    margin-bottom: 50px;
+    width: 1500px;
+    float: left;
+}
+
+.bookmark-item {
+    margin-bottom: 20px;
+}
+
+.poster-pre {
+    font-size: 0;
+    margin-bottom: 5px;
+}
+
+.btn-bookmark {
+    margin-bottom: 50px;
+    background-color: #A596F1;
+}
+
+#backbtn {
+    margin: 5px;
+}

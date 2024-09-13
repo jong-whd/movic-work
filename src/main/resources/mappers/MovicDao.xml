@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.icia.movic.dao.MovicDao">
+    <insert id="insertMovic" parameterType="MovicDto">
+        insert into movietbl
+        values (null,#{m_title},#{m_director},#{m_nation},#{m_language},#{m_genre},#{m_actor},#{m_open},#{m_synopsis},#{p_sysname},#{v_sysname},#{p_oriname})
+    </insert>
+    <insert id="insertBookMark" parameterType="BookMarkDto">
+        insert into bookmarktbl
+        values (null,#{b_uid},#{b_mcode})
+    </insert>
+
+    <delete id="deleteMovic" parameterType="Integer">
+        delete from movietbl where m_code=#{m_code}</delete> <!-- 데이터 삭제 -->
+
+
+    <update id="updateMovic" parameterType="MovicDto">
+        update movietbl
+        set m_title=#{m_title},m_director=#{m_director},m_nation=#{m_nation},
+            m_language=#{m_language},m_genre=#{m_genre},m_actor=#{m_actor},m_open=#{m_open},
+            m_synopsis=#{m_synopsis},p_sysname=#{p_sysname},p_oriname=#{p_oriname}
+        where m_code=#{m_code}
+    </update> <!-- 데이터 수정 -->
+
+    <select id="selectMovicList" resultType="MovicDto"
+    parameterType="HashMap">
+    select * from movietbl
+        <if test="keyword != null and keyword != ''">
+            where m_title like concat('%', #{keyword}, '%') or m_actor like concat('%', #{keyword}, '%')
+        </if>
+    Limit #{pageNum}, #{listCnt}
+
+    </select> <!-- 영화 목록  -->
+    <select id="selectMovic" resultType="MovicDto"
+    parameterType="Integer">
+        select * from mlist where m_code=#{m_code}
+    </select> <!-- 영화 목록  -->
+    <select id="selectMovicCnt" resultType="Integer">
+        select count(*) from movietbl
+        <if test="keyword != null and keyword != ''">
+            where m_title like concat('%', #{keyword}, '%') or m_actor like concat('%', #{keyword}, '%')
+        </if>
+    </select>
+
+
+
+
+    <!-- 북마크 상태 -->
+    <select id="getBookMark" resultType="int">
+        select count(*)
+        from bookmark
+        where m_code = #{m_code} and m_title=#{m_title} and v_sysname = #{v_sysname} and uid = #{uid}
+    </select>
+    <select id="selectBookMarkList" resultType="BookMarkDto" parameterType="String">
+        select * from blist
+        where b_uid=#{uid}
+    </select>
+    <select id="selectPayList" resultType="com.icia.movic.dto.PaymentDto"></select>
+
+
+    <!-- 북마크 취소 -->
+    <delete id="deleteBookMark" parameterType="Integer">
+        delete from bookmarktbl
+        where b_code = #{b_code}
+    </delete>
+
+    <!-- 결제 -->
+    <insert id="insertPayment" parameterType="paymentDto">
+        insert into paymenttbl
+        values (null, #{p_id}, #{p_payment});
+    </insert>
+
+</mapper>
+

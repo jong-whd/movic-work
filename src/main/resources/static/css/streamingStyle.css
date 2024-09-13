@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    background-color: #e3e3e3;
+    color: #74748E;
+}
+
+body {
+    margin: 0 auto;
+    min-height: 100vh;
+    max-width: 400px;
+}
+
+.poster {
+    text-align: center;
+    width: 500px;
+    height: 800px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+div > .content {
+    height: 900px;
+    width: 500px;
+}
+
+.btn-area {
+    margin-left: 400px;
+    margin-bottom: 20px;
+}
+
+
+
+.btn-streaming {
+    width: 100px;
+    height: 40px;
+    background-color: #A596F1;
+    color: darkviolet;
+    border: none;
+
+
+}
+
+.btn-streaming:hover {
+    color: fuchsia;
+}
+
+#payment {
+    margin-top: 10px;
+}
+
+#play {
+    margin-top: 10px;
+}
+
+.streaming-sub {
+    font-size: 2em;
+}
+.streaming-content {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+hr {
+    margin-bottom: 50px;
+    width: 500px;
+    border: 1px solid #74748E;
+}
+
+.detail-sub {
+    margin: 5px auto;
+    display: flex;
+}
+
+.detail-title {
+    /*border: 1px solid red;*/
+    flex: 1;
+    box-sizing: border-box;
+}
+
+.detail-content {
+    /*border: 1px solid red;*/
+    flex: 1;
+    margin: 0px 5%;
+    box-sizing: border-box;
+    left: 20px;
+}
+
+.detail-synopsis {
+    margin-top: 40px;
+}
+
+.synopsis-content {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
