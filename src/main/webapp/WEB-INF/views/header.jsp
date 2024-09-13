@@ -3,5 +3,5 @@
 <div class="top-bar">
     <img alt="로고" src="images/mlogo.png" class="logo"
         onclick="location.href='/'">
-        <h2>안녕</h2>
+        <h2>안녕gg</h2>
 </div>
